@@ -37,7 +37,7 @@ impl Router {
     }
 
     pub fn handle_request(&self, request: Request) -> Response {
-        let mut response = Response::new(404, "".to_string(), None);
+        let response = Response::new(404, "".to_string(), None);
 
         for route in &self.routes {
             if route.path == request.path && route.method == request.method {

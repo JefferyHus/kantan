@@ -26,7 +26,9 @@ fn main() {
 
     // add a route with a json response
     router.post("/json".to_string(), |_req, res| {
-        res.json(200, r#"{"message": "Hello, World!"}"#.to_string())
+        res.json(200, serde_json::json!({
+            "message": "Hello, World!"
+          }))
     });
 
     // add the router to the app
@@ -34,7 +36,7 @@ fn main() {
 
     // set the not found handler
     app.use_not_found_handler(|_req, res| {
-        res.html(404, "<h1>Not Found</h1>".to_string())
+        res.status(404).html(404, "<h1>Not Found</h1>".to_string())
     });
 
     // start the server

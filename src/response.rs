@@ -25,10 +25,10 @@ impl Response {
     }
   }
 
-  pub fn json(&self, status: u32, body: String) -> Self {
+  pub fn json(&self, status: u32, body: serde_json::Value) -> Self {
     Self {
       status,
-      body,
+      body: body.to_string(),
       content_type: Some("application/json".to_string()),
     }
   }

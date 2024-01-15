@@ -1,9 +1,11 @@
 [package]
-name = "todo"
+name = "Kantan"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "kantan"
+path = "src/lib.rs"
 
 [dependencies]
 serde = { version = "1.0.111", features = ["derive"]}
